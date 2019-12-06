@@ -1,0 +1,68 @@
+
+
+
+
+
+
+
+
+
+
+===============================================================================
+                            ****** Overview ******
+                                     Hoja2
+                            Plantilla_vencimientos
+===============================================================================
+****** Sheet 1: Hoja2 ******
+tipovencimiento                                tipoContrato tipoConvenio tipoCobertura venhardw   softhw vensoftapl venconsop  venadmin   venadmter venarrend venarrter
+Mantenimiento_de_hardware                      IGF          Hardware     9x5 NBD       IBM        IBM    IBM        IBM i      IBM i      Hardware            IGF
+                                               Leasing                                                                                                        Leasing
+Mantenimiento_de_software_asociado_al_hardware bancario     Software     7x14x4        Cisco      Cisco  Cisco      IBM TSM    IBM AIX    Software            bancario
+                                                                                                                    IBM
+Mantenimiento_de_software_aplicativo           Otro                                    Lenovo     Lenovo Lenovo     Storage    IBM TSM    Ambos               Otro
+                                                                                                                               IBM
+Convenios_de_soporte_Redsis                                                            EMC        EMC    EMC        Windows OS Storage
+                                                                                                                    Servidores
+Contratos_de_administracion_Servicios_Redsis                                           Toshiba    Oracle Oracle     Intel      Windows OS
+                                                                                                                    Microsoft  Servidores
+Contratos_de_administracion_servicios_terceros                                         NCR               RedHat     Azure      Intel
+                                                                                                                               Microsoft                      TIPO DE
+Contratos_de_arrendamiento_Redsis                                                      Supermicro        Veeam      VMWare     Azure                          CONTRATO
+Contratos_de_arrendamiento_terceros                                                    Oracle            VMWare     Veeam      VMWare
+                                                                                       Custom            NCR        Lotus      Veeam
+                                                                                       Cipherlab         Toshiba    SAP Basis  Lotus
+                                                                                       Hengyu            Microsoft  Oracle     SAP Basis
+                                                                                       Maken             Suse       Go Any     Oracle
+                                                                                       Flytech           GoAnywhere iCluster   Go Any
+                                                                                                         Otros
+                                                                                                         Green
+                                                                                       Champtek          Light      RedHat     iCluster
+                                                                                                         Otras
+                                                                                                         marcas     Otros      RedHat
+                                                                                                                               Otros
+[i_d2b8e5ccc902846a_html_bfb2297f.png]
+
+===============================================================================
+****** Sheet 2: Plantilla_vencimientos ******
+        Tipo_Vencimiento    Nro_Pedido Plataforma_Marca Numero_de_Serie Modelo_Numero_Referencia Tipo_Convenio Tipo_Cobertura Tipo_Contrato Descripcion FechaInicio FechaVencimiento Observaciones
+                            BAQ-0426-                                                                                                       5000
+Convenios_de_soporte_Redsis 16                                          ACH689                   Hardware      7x14x4                       DOLARES      01/01/2017       08-08-2020 500 DOLARES
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

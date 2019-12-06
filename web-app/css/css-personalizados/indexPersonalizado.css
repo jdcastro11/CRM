@@ -1,0 +1,78 @@
+
+
+/*ESTAS PROPIEDADES SOBREESCRIBEN LAS DEL BOOTSTRAP Y ASI LAS NECESITÉ*/
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.span10
+{
+	padding: 20px 0px 20px 15px !important;
+}
+
+thead{
+	background-color:#FFD97B;
+}
+thead tr {
+	color:#050302;
+	font-weight:bold;
+}
+
+.odd{
+	background-color:#F0EDED;
+}
+/*ESTAS PROPIEDADES SOBREESCRIBEN LAS DEL BOOTSTRAP Y ASI LAS NECESITÉ*/
+
+
+/*PAGINACION*/
+
+
+.pagination{
+	border-top: 0;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;    
+}
+
+
+.pagination a,
+.pagination .currentStep {
+    color: #666666;    
+    margin: 0 0.1em;
+    padding: 0.3em 0.6em;
+    text-decoration: none;
+    -moz-border-radius: 0.3em;
+    font-size:1.2em;
+    cursor: pointer;
+}
+
+.nextLink {
+  border: gainsboro 1px solid;
+  border-radius:50%;
+}
+
+.prevLink {
+  border: gainsboro 1px solid;
+  border-radius: 50%;
+  color: white;
+}
+
+.pagination a:hover, .pagination a:focus,
+.pagination .currentStep {
+    background-color: #FFD97B;    
+    outline: none;
+    border-radius: 5%;
+} 
+
+/*PAGINACION*/
+
+
+.nav-tabs > .active > a, .nav-tabs > .active > a:hover
+{
+	
+	background-color:#FFD97B;	
+}
+
+
+

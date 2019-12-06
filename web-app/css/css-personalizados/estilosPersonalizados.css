@@ -1,0 +1,199 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 24, 2014, 11:06:06 AM
+    Author     : mmaury
+*/
+@media screen and (min-width: 0px) and (max-width: 600px){
+    .div-mobile{
+        display: none;       
+    }
+}
+
+/* ----------- Estilos Personalizados ----------- */
+.margin-bottom{
+    margin-bottom: 10px;
+}
+.margin-right{
+    margin-right: 10px;
+}
+.ocultar{
+    display: none;
+}
+
+/* ----------- Paneles de Listado de oportunidades ----------- */
+.panel-heading-win{
+    background-color: #127201;
+    color: white;
+}
+.panel-win{
+    border: 1px solid #127201 !important;
+}
+.panel-heading-lost{
+    background-color: #d9000d;
+    color: white;
+}
+.panel-lost{
+    border: 1px solid #d9000d !important;
+}
+.panel-heading-asigned{
+    background-color: #2f00af;
+    color: white;
+}
+.panel-asigned{
+    border: 1px solid #2f00af !important;
+}
+.panel-heading-generated{
+    background-color: #007489;
+    color: white;
+}
+.panel-generated{
+    border: 1px solid #007489 !important;
+}
+.panel-heading-invoiced{
+    background-color: #e59100;
+    color: white;
+}
+.panel-invoiced{
+    border: 1px solid #e59100 !important;
+}
+
+
+/* ----------- Estilo Panel de Control ----------- */
+#chart_div{
+    margin: auto;
+    height: 200px;
+    width: 85%;
+}
+#chart_div2{
+    margin: auto;
+    height: 200px;
+    width: 85%;
+}
+#chart_div3{
+    color: #127201;
+    margin: auto;
+    font-size: 24px;
+    font-weight: bold;
+    height: 200px;
+    text-align: center;
+    width: 85%;
+}
+#chart_div4{
+    margin: auto;
+    height: 200px;
+    width: 85%;
+}
+
+/* ----------- Estilos de las pestañas detalle de cada opcion ----------- */
+.chart_lead_det_fab, .chart_cc_det_fab, .chart_f_det_fab, .chart_fp_det_fab{
+    height: 200px;
+    margin: 20px auto;
+    width: 80%;
+}
+
+
+.box-content-tabla {
+    background: none repeat scroll 0% 0% #FCFCFC;
+    border-radius: 0px 0px 2px 2px;
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+}
+
+table tbody td{
+    font-weight: normal !important;
+}
+
+
+
+.container{	
+	width:100%;
+	position:relative;
+	height:470px;
+}
+
+
+
+.infoQ{	
+	margin-right:4px;
+	float:left;
+	background-color:#E7E7E6;		
+	font-size:16px;
+	color:#7f7f7f;
+	font-family:Calibri;
+	width:32%;
+	padding: 2px 1px;	
+		
+}
+
+
+#infoQIzq{
+	width:50%;
+	height:200px;
+	background-color:#FFFFFF;
+	float:left;	
+}
+
+
+#infoQDer{
+	width:50%;	
+	height:auto;
+	float:right;
+	
+}
+
+.infoQHeader{	
+	width:100%;
+	height:auto;		
+}
+
+
+
+
+.infoQHeader>p{
+	display:inline-block;	
+	color:#FFFFFF;
+	font-size:14px;	
+	font-weight:bold;	
+	text-align:center;	
+	background-color:#7f7f7f;
+	padding:5px 2px;	
+	width:32%;
+}
+
+
+h3{
+	color:#7f7f7f;
+	font-family:Calibri;
+	font-size:18px;
+	display:inline;
+}
+
+
+.divPorcentaje
+{
+	border-radius:4px;
+	background-color:#DAC9C9;
+	width:120px;
+	height:55px;
+	display:inline-block;
+	margin:15px 10px;
+	
+}
+
+
+h4
+{
+	color:#FFFFFF;
+	margin:5px 0;
+}
+
+.divPorcentaje p
+{
+	color:white;
+	font-weight:bold;
+	font-size:20px;
+	
+}	

@@ -1,0 +1,29 @@
+<html>
+<head>
+</head>
+<body>
+<a href="http://elheraldo.co" onclick="return confirmar('Esta seguro')"> Click aqui</a>
+
+<script src="jquery-1.7.2.min.js"> </script>
+<script src="jquery.noty.packaged.min.js"> </script>
+<script language="javascript">
+                   function confirmar(xmess,function(swconf){
+                     if (swconf)
+                         return true
+                      else
+                         return false
+                   })
+                   
+                   
+                   function confirmar(mess,callback){
+                   
+                   var  confirmButton, cancelButtom;
+                     alert(xmess)
+                     confirmButton.onclick = function() { callback(true); };
+                     cancelButton.onclick = function() { callback(false); };
+                   }
+
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="584e527c-aaf1-4913-aa1f-98114319beb6" name="Default" comment="actualización lista requerimientos">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="crm" />
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Jose Daniel Maury Navarro &lt;jmaury@redsis.com&gt;" />
+        <option value="Jose Castro" />
+      </list>
+    </option>
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="CREATE_PULL_REQUEST_DEFAULT_BRANCH" value="master" />
+    <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_USER" value="jdmaury" />
+    <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_NAME" value="CRM" />
+  </component>
+  <component name="GrailsSDKManager">
+    <option name="grailsSDKs">
+      <map>
+        <entry key="$PROJECT_DIR$" value="C:\grails-2.3.2" />
+        <entry key="C:\Users\jmaury\CRMGIT\crm" value="D:\Instaladores\Grails2.3.2\grails-2.3.2" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectId" id="1RlAVl7wNtYmaKZup4KzNArssYq" />
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="rolop&#9;FILE&#9;file://C:/Users/jmaury/CRMGIT/crm/grails-app/domain/crm/RolOpcionOperacion.groovy&#10;login&#9;FILE&#9;file://C:/Users/jmaury/CRMGIT/crm/grails-app/controllers/crm/LoginController.groovy&#10;seguridad&#9;FILE&#9;file://C:/Users/jmaury/CRMGIT/crm/grails-app/services/crm/SeguridadService.groovy&#10;seguridadse&#9;FILE&#9;file://C:/Users/jmaury/CRMGIT/crm/grails-app/services/crm/SeguridadService.groovy&#10;config&#9;FILE&#9;file://C:/Users/jmaury/CRMGIT/crm/grails-app/conf/Config.groovy&#10;buildco&#9;FILE&#9;file://C:/Users/jmaury/CRMGIT/crm/grails-app/conf/BuildConfig.groovy" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="grails.last.selected.app.url" value="file://$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Program Files/Git/cmd/git.exe" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.23666666" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jmaury\CRMGIT\crm\grails-app\views\anexo" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Grails: crm" type="GrailsRunConfigurationType" factoryName="Grails">
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="passParentEnv" value="true" />
+      <setting name="grailsApplicationRoot" value="$PROJECT_DIR$" />
+      <setting name="launchBrowser" value="true" />
+      <setting name="launchBrowserUrl" value="" />
+      <setting name="depsClasspath" value="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="passParentEnv" value="true" />
+      <setting name="launchBrowser" value="true" />
+      <setting name="launchBrowserUrl" value="" />
+      <setting name="depsClasspath" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy" singleton="false">
+      <module name="crm" />
+      <setting name="path" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workDir" value="file://$PROJECT_DIR$" />
+      <setting name="debug" value="false" />
+      <setting name="alternativeJrePathEnabled" value="true" />
+      <setting name="alternativeJrePath" value="1.7" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <module name="" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\jmaury\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="584e527c-aaf1-4913-aa1f-98114319beb6" name="Default" comment="" />
+      <created>1521560009593</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1521560009593</updated>
+      <workItem from="1521560013462" duration="1915000" />
+      <workItem from="1521561973829" duration="40017000" />
+      <workItem from="1522072297423" duration="17713000" />
+      <workItem from="1522703798781" duration="3773000" />
+      <workItem from="1522763424679" duration="4010000" />
+      <workItem from="1522773723258" duration="38085000" />
+      <workItem from="1523286550575" duration="8709000" />
+      <workItem from="1523308443089" duration="2093000" />
+      <workItem from="1523370618494" duration="4750000" />
+      <workItem from="1523538719401" duration="14801000" />
+      <workItem from="1523574009684" duration="304000" />
+      <workItem from="1523623967984" duration="6651000" />
+      <workItem from="1523917299423" duration="800000" />
+      <workItem from="1523977728017" duration="6857000" />
+      <workItem from="1524064541799" duration="23128000" />
+      <workItem from="1524670243006" duration="5797000" />
+      <workItem from="1524748602681" duration="51481000" />
+      <workItem from="1525298240962" duration="1886000" />
+      <workItem from="1525358098110" duration="17582000" />
+      <workItem from="1525698608854" duration="22256000" />
+      <workItem from="1525883323442" duration="1078000" />
+      <workItem from="1526050215603" duration="9769000" />
+      <workItem from="1526658183645" duration="9076000" />
+      <workItem from="1527804652406" duration="61202000" />
+      <workItem from="1528809043525" duration="8353000" />
+      <workItem from="1528896269946" duration="29000" />
+      <workItem from="1529007034973" duration="545000" />
+      <workItem from="1529333756841" duration="2496000" />
+      <workItem from="1529380347004" duration="5837000" />
+      <workItem from="1529932655858" duration="12854000" />
+      <workItem from="1530192450627" duration="19667000" />
+      <workItem from="1531316315029" duration="138000" />
+      <workItem from="1531316782742" duration="540000" />
+      <workItem from="1531402810302" duration="1342000" />
+      <workItem from="1531759914750" duration="3593000" />
+      <workItem from="1532367499030" duration="8412000" />
+      <workItem from="1533054295516" duration="28036000" />
+      <workItem from="1534176057414" duration="10570000" />
+      <workItem from="1534339988783" duration="22689000" />
+      <workItem from="1534857773069" duration="3153000" />
+      <workItem from="1534949436486" duration="28409000" />
+      <workItem from="1535982059944" duration="21436000" />
+      <workItem from="1536758519308" duration="1966000" />
+      <workItem from="1536843457587" duration="80931000" />
+      <workItem from="1539266911773" duration="19262000" />
+      <workItem from="1539721430378" duration="15310000" />
+      <workItem from="1540236755372" duration="9922000" />
+      <workItem from="1540387670870" duration="69000" />
+      <workItem from="1540389933504" duration="4022000" />
+      <workItem from="1540413111064" duration="16451000" />
+      <workItem from="1541797992099" duration="7874000" />
+      <workItem from="1542201662212" duration="883000" />
+      <workItem from="1542564032278" duration="19618000" />
+      <workItem from="1543855329136" duration="3710000" />
+      <workItem from="1544456693607" duration="1546000" />
+      <workItem from="1546442322043" duration="27857000" />
+      <workItem from="1546630995670" duration="8934000" />
+      <workItem from="1547039518892" duration="11651000" />
+      <workItem from="1547658176759" duration="3032000" />
+      <workItem from="1548099503442" duration="1087000" />
+      <workItem from="1548111414025" duration="9389000" />
+      <workItem from="1548357045784" duration="6518000" />
+      <workItem from="1548685721896" duration="1811000" />
+      <workItem from="1550084429620" duration="40094000" />
+      <workItem from="1552428563455" duration="2264000" />
+      <workItem from="1552929389050" duration="17000" />
+      <workItem from="1552943645945" duration="618000" />
+      <workItem from="1553282479455" duration="5655000" />
+      <workItem from="1555379265082" duration="26956000" />
+      <workItem from="1556063367086" duration="40864000" />
+      <workItem from="1557785716227" duration="3724000" />
+      <workItem from="1558018470880" duration="1899000" />
+      <workItem from="1558380434142" duration="20829000" />
+      <workItem from="1575480198657" duration="37812000" />
+      <workItem from="1575663495242" duration="5097000" />
+    </task>
+    <task id="LOCAL-00001" summary="cambios 1">
+      <created>1533487119925</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1533487119925</updated>
+    </task>
+    <task id="LOCAL-00002" summary="cambios Agregado anexos a oportunidades JCastro">
+      <created>1534356861720</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1534356861721</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Agregada Gproye a pedidos JCastro">
+      <created>1546954176891</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1546954176891</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Agregada Gproye a pedidos y modificado la captura del arquitecto de JCastro">
+      <created>1553283554547</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1553283554547</updated>
+    </task>
+    <task id="LOCAL-00005" summary="actualización lista requerimientos">
+      <created>1575661537896</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1575661537896</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="2">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="cambios 1" />
+    <MESSAGE value="cambios Agregado anexos a oportunidades JCastro" />
+    <MESSAGE value="Agregada Gproye a pedidos JCastro" />
+    <MESSAGE value="Agregada Gproye a pedidos y modificado la captura del arquitecto de JCastro" />
+    <MESSAGE value="actualización lista requerimientos" />
+    <option name="LAST_COMMIT_MESSAGE" value="actualización lista requerimientos" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/grails-app/views/pedido/index.gsp</url>
+          <line>231</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="grailsSettings">
+    <option name="map">
+      <map>
+        <entry key="crm">
+          <value>
+            <GrailsSettings>
+              <option name="buildConfigCrc" value="794040433" />
+              <option name="pluginDependenciesCrc" value="38855786" />
+              <option name="properties">
+                <map>
+                  <entry key="grails.global.plugins.dir" value="C:\Users\jdcastro\.grails\2.3.2\global-plugins" />
+                  <entry key="grails.project.fork.run" value="false" />
+                  <entry key="grails.project.fork.test" value="false" />
+                  <entry key="grails.project.plugins.dir" value="target\work\plugins" />
+                  <entry key="grails.project.work.dir" value="target\work" />
+                  <entry key="grails.work.dir" value="C:\Users\jdcastro\.grails\2.3.2" />
+                </map>
+              </option>
+            </GrailsSettings>
+          </value>
+        </entry>
+        <entry key="crm-grailsPlugins">
+          <value>
+            <GrailsSettings />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

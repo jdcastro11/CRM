@@ -1,0 +1,70 @@
+.title {
+	background: none repeat scroll 0 0 #FFFFFF !important;
+	border: none !important;
+}
+
+.icon-plus {
+  background-image: url("/crm/static/perfectum/img/glyphicons-halflings-white.png") !important;
+  background-position: -408px -96px !important;
+}
+
+.icon-remove {
+  background-image: url("/crm/static/perfectum/img/glyphicons-halflings.png") !important;
+  background-position: -312px 0 !important;
+}
+
+.icon-edit {
+  background-image: url("/crm/static/perfectum/img/glyphicons-halflings.png") !important;
+  background-position: -96px -72px !important;
+}
+
+.icon-refresh {
+  background-image: url("/crm/static/perfectum/img/glyphicons-halflings.png") !important;
+  background-position: -240px -24px !important;
+}
+.icon-user {
+  background-image: url("/crm/static/perfectum/img/glyphicons-halflings.png") !important;
+  background-position: -168px 0 !important;
+}
+.icon-hand-up {
+  background-image: url("/crm/static/perfectum/img/glyphicons-halflings.png") !important;
+  background-position: -192px -144px !important;
+}
+
+.icon-list {
+  background-image: url("/crm/static/perfectum/img/glyphicons-halflings.png") !important;
+  background-position: -360px -48px !important;
+}
+
+.icon-thumbs-up {
+  background-image: url("/crm/static/perfectum/img/glyphicons-halflings.png") !important;
+  background-position: -96px -144px !important;
+}
+
+.button {
+	background-image: -moz-linear-gradient(top, #67c2ef, #2FABE9);
+  	background-image: -ms-linear-gradient(top, #67c2ef, #2FABE9);
+  	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#67c2ef), to(#2FABE9));
+  	background-image: -webkit-linear-gradient(top, #67c2ef, #2FABE9);
+  	background-image: -o-linear-gradient(top, #67c2ef, #2FABE9);
+  	background-image: linear-gradient(top, #67c2ef, #2FABE9);
+  	background-repeat: repeat-x;
+  	border-color: #1598d9 #1598d9 #007bb8 #1598d9;
+}
+.button .x-btn-inner {
+	color:#ffffff;
+	font-size: 12px !important;
+	font-weight: bold !important;
+	font-family: 'Arial' !important;
+}
+.button.my-over {
+	background: #2FABE9;
+	font-size: 18px !important;
+}
+.button.my-disabled{
+	background: #cccccc;
+}
+tr.row-asignado td  {
+  background-color: #A9F5D0 !important;
+}
+

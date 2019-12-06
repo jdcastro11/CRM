@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="urn:DefaultNamespace" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="urn:DefaultNamespace" xmlns:intf="urn:DefaultNamespace" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <message name="MOSTRARFORMResponse">
+  <part name="MOSTRARFORMReturn" type="xsd:anyType"/>
+ </message>
+ <message name="MOSTRARFORMRequest">
+  <part name="NUMREQUERIMIENTO" type="xsd:string"/>
+  <part name="URL" type="xsd:string"/>
+ </message>
+ <portType name="showform">
+  <operation name="MOSTRARFORM" parameterOrder="NUMREQUERIMIENTO URL">
+   <input message="impl:MOSTRARFORMRequest" name="MOSTRARFORMRequest"/>
+   <output message="impl:MOSTRARFORMResponse" name="MOSTRARFORMResponse"/>
+  </operation>
+ </portType>
+ <binding name="DominoSoapBinding" type="impl:showform">
+  <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="MOSTRARFORM">
+   <wsdlsoap:operation soapAction="MOSTRARFORM"/>
+   <input name="MOSTRARFORMRequest">
+    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:DefaultNamespace" use="encoded"/>
+   </input>
+   <output name="MOSTRARFORMResponse">
+    <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:DefaultNamespace" use="encoded"/>
+   </output>
+  </operation>
+ </binding>
+ <service name="showformService">
+  <port binding="impl:DominoSoapBinding" name="Domino">
+   <wsdlsoap:address location="http://localhost"/>
+  </port>
+ </service>
+</definitions>
