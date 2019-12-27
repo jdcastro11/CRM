@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="584e527c-aaf1-4913-aa1f-98114319beb6" name="Default" comment="actualización lista requerimientos">
-      <change afterPath="$PROJECT_DIR$/grails-app/views/pedido/indexcompraeyc.gsp" afterDir="false" />
+    <list default="true" id="584e527c-aaf1-4913-aa1f-98114319beb6" name="Default" comment="actualización lista requerimientos hechos en versión anterior">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.slcache/.index" beforeDir="false" afterPath="$PROJECT_DIR$/.slcache/.index" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grails-app/controllers/crm/DashboardController.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/grails-app/controllers/crm/DashboardController.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grails-app/controllers/crm/EmpresaController.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/grails-app/controllers/crm/EmpresaController.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grails-app/controllers/crm/LoginController.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/grails-app/controllers/crm/LoginController.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grails-app/controllers/crm/OportunidadController.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/grails-app/controllers/crm/OportunidadController.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grails-app/controllers/crm/PedidoController.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/grails-app/controllers/crm/PedidoController.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grails-app/controllers/crm/WSController.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/grails-app/controllers/crm/WSController.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grails-app/domain/crm/Pedido.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/grails-app/domain/crm/Pedido.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grails-app/services/crm/GeneralService.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/grails-app/services/crm/GeneralService.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grails-app/services/crm/PedidoService.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/grails-app/services/crm/PedidoService.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grails-app/views/pedido/index.gsp" beforeDir="false" afterPath="$PROJECT_DIR$/grails-app/views/pedido/index.gsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,6 +25,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="jdcastro11@gmail.com" />
         <option value="Jose Castro" />
         <option value="Jose Daniel Maury Navarro &lt;jmaury@redsis.com&gt;" />
       </list>
@@ -330,7 +319,7 @@
       <workItem from="1575663495242" duration="10204000" />
       <workItem from="1575898592894" duration="38435000" />
       <workItem from="1576797624893" duration="623000" />
-      <workItem from="1577368919313" duration="9739000" />
+      <workItem from="1577368919313" duration="11614000" />
     </task>
     <task id="LOCAL-00001" summary="cambios 1">
       <created>1533487119925</created>
@@ -392,7 +381,8 @@
     <MESSAGE value="Agregada Gproye a pedidos JCastro" />
     <MESSAGE value="Agregada Gproye a pedidos y modificado la captura del arquitecto de JCastro" />
     <MESSAGE value="actualización lista requerimientos" />
-    <option name="LAST_COMMIT_MESSAGE" value="actualización lista requerimientos" />
+    <MESSAGE value="actualización lista requerimientos hechos en versión anterior" />
+    <option name="LAST_COMMIT_MESSAGE" value="actualización lista requerimientos hechos en versión anterior" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
