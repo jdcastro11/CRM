@@ -416,7 +416,69 @@ class PedidoController extends BaseController{
 
 			
 	 }
-	
+
+	def indexcompraeyc()
+	{
+		//def query="SELECT p.* FROM pedidos as p, det_pedidos as dp WHERE p.id=dp.pedido_id and p.eliminado=0 and dp.id_estado_det_pedido='peddetpd01' GROUP BY p.nombre_cliente"
+		if(!params.filter)params.filter = [op:[:],empleado:[:],detpedido:[:]]
+
+		params.filter.op.eliminado = "Equal"
+		params.filter.eliminado='0'
+		params.filter.op.idEstadoPedido="NotEqual"
+		params.filter.idEstadoPedido="pedanuladx"
+		params.filter.op.eyc="Equal"
+		params.filter.eyc="S"// pedidos pertenecientes a EyC
+		params['filter.op.detpedido.idEstadoDetPedido']="Equal"
+		params['filter.detpedido.idEstadoDetPedido']="peddetpd01"//pendiente x compra
+		params['filter.op.detpedido.eliminado']="Equal"
+		params['filter.detpedido.eliminado']="0"//eliminados igual a 0
+		params['filter.op.detpedido.idProcesarPara']="Equal"
+		params['filter.detpedido.idProcesarPara']="pedprosp02" //cableado
+
+		if(params.filter.detenidoEnCompra=='Si')
+		{
+
+			params['filter.op.detenidoEnCompra']="Equal"
+			params['filter.detenidoEnCompra']="1"
+		}
+
+
+		if(params.filter.detenidoEnCompra=='No')
+		{
+
+			params['filter.op.detenidoEnCompra']="Equal"
+			params['filter.detenidoEnCompra']="0"
+		}
+
+
+		if (params.filter.idSucursal){
+			params.filter.idSucursal=generalService.getIdSucursal(params.filter.idSucursal)
+		}
+
+
+		listaFiltro=filterPaneService.filter(params, Pedido).unique()//el unique es para q no se repitan
+
+
+		String ztrm=generalService.getValorParametro('trm')
+		def xtrm=new BigDecimal(ztrm)
+		String valortotalpesos=calcularValor(listaFiltro,1)//pesos
+		String valortotaldolares=calcularValor(listaFiltro,2)//dolares
+
+		def facturaDolares=pedidoService.totalFacturaPedidos(listaFiltro).facturaDolares
+		def facturaPesos=pedidoService.totalFacturaPedidos(listaFiltro).facturaPesos
+
+
+		// pedidoInstanceList
+//			 pedidoInstanceCount: filterPaneService.count( params, Pedido )
+		render(view:"indexcompraeyc", model:[filterParams:org.grails.plugin.filterpane.FilterPaneUtils.extractFilterParams(params),
+											 params:params,listaFiltro:listaFiltro,xtrm:xtrm,totalPesos:valortotalpesos,totalDolares:valortotaldolares,
+											 pedidoInstanceCount:listaFiltro.size(),xtitulo:generalService?.getValorParametro('pedidoscomeyc'),facturaDolares:facturaDolares,
+											 facturaPesos:facturaPesos]
+		)
+
+
+	}
+
 	def calcularValor(def list, int tipo)//1=pesos 2=dolares
 	{
 		def subtotal=0		
@@ -553,6 +615,18 @@ class PedidoController extends BaseController{
 			//println "asdasdsad"+p
 			
 			
+		}
+		else if(params.tipo_export=='3')//exportar facturas mes pasado
+		{
+			println("Exportar Facturas mes pasado...")
+			fields = ["numPedido","nombreCliente","fechaApertura","numFactura","fechaFactura","valorFactura","idMondedaFactura","idEstadoPedido"]
+			labels = ["numPedido": "Pedido","nombreCliente":"Empresa","fechaApertura":"Apertura de pedido","numFactura":"Numero factura","fechaFactura":"Fecha factura","valorFactura":"Valor factura","idMondedaFactura":"Moneda","idEstadoPedido":"Estado pedido"]
+
+			/*def upperCase = { Pedido, value ->
+				return value.toUpperCase()
+			}*/
+			formatters = [:]
+			lista_export=generalService.informeFacturasMesAnterior()
 		}
 		else
 		{
@@ -821,7 +895,15 @@ class PedidoController extends BaseController{
 			respond pedidoInstance.errors, view: 'create'
 			return
 		}
-		
+		//todo modificar para los consecutivos a partir de otros proyectos (o pedidos)
+		def xlista = Pedido.executeQuery("select id,numPedido from Pedido where oportunidad.id=${pedidoInstance.oportunidad} and eliminado=0")
+		def xcount = Pedido.executeQuery("select count(*) from Pedido where oportunidad.id=${pedidoInstance.oportunidad} and eliminado=0")
+
+		if (xcount[0] > 0) {
+			xcount = xcount + 1
+			snreg = prefijo + "-" + xlista.numPedido + xcount + "-" + hoy[Calendar.YEAR].toString().substring(2,4)
+			println(snreg)
+		}
 
 		pedidoInstance.numPedido=consecutivoService.pedido(params?.idSucursal)
 		
@@ -940,7 +1022,7 @@ class PedidoController extends BaseController{
 			// Pedido  creado por generacion de  Oportunidad
 			println "Entre aca generar pedido "
 			pedidoInstance.oportunidad.idEstadoOportunidad='xganada'
-			pedidoInstance.oportunidad.idEtapa='posventa75'//LO CAMBIE DE 100 A 75 EL 31/10/2016
+			pedidoInstance.oportunidad.idEtapa='posvent100'//LO CAMBIE DE 100 A 75 EL 31/10/2016//se devuelve al 100 el 10/12/2019
 			pedidoInstance.oportunidad.fechaCierreReal=new Date()
 			pedidoInstance.fechaApertura =new Date()
 			
@@ -1034,7 +1116,26 @@ class PedidoController extends BaseController{
 			log.info("Pedido ${pedidoInstance.numPedido} con servicios redsis.")
 
 		}
+		//------------NOTIFICAR si pertenece a EyC-------------------------JDCASTRO (Mayo 2019)
 
+		if(pedidoInstance.eyc=='S'){
+			println "pedido actualizado con EyC activado (S)"
+			generalService.notificarGEyC(pedidoInstance.numPedido,"Pedido ${pedidoInstance.numPedido}, para EyC modificado")
+			println "Correo enviado a gerente EyC!"
+
+			log.info("Pedido ${pedidoInstance.numPedido} para EyC.")
+
+		}
+// ----------------NOTIFICAR GERENTE DE PROYECTOS----------------------------JDCASTRO (Mayo 2019)
+		if(pedidoInstance.gerenteProye=='S')
+		{
+			println "Check gerente proyecto activado"
+			generalService.notificarGProyect(pedidoInstance.numPedido,0)
+			println "Correo pedido modificado enviado al gerente de proyectos!"
+
+			log.info("Pedido ${pedidoInstance.numPedido} con gerente proyecto")
+
+		}
 		
 		//-----------JOSE DANIEL MAURY 18/07/2016
 		
@@ -1178,6 +1279,14 @@ class PedidoController extends BaseController{
 			//println "Correo enviado al señor Marlon!"
 
 			log.info("Pedido ${pedidoInstance.numPedido} con servicios redsis.")
+
+		}
+		// ----------------NOTIFICAR GERENTE DE PROYECTOS----------------------------JDCASTRO
+		if(pedidoInstance.gerenteProye=='S')
+		{
+			println "Check gerente proyecto activado"
+			generalService.notificarGProyect(pedidoInstance.numPedido,1)
+			println "Correo asignar Gproye al gerente de proyectos!"
 
 		}
 	   
@@ -1443,9 +1552,11 @@ class PedidoController extends BaseController{
 			if (falla==6) flash.warning="Antes de enviar a Revisión debe anexar propuesta de Servicios IBM. Verifique"
 			if (falla==7) flash.warning="Antes de enviar a Revisión debe anexar OC del Cliente o contrato. Verifique"
 			if (falla==8) {
-				flash.warning="Debe anexar propuesta aprobada x cliente.HÃ¡galo"
+				flash.warning="Debe anexar propuesta aprobada x cliente. Verifique"
 				flash.link="<a href='#'>AquÃ­</a>"
 			}
+			if (falla==9) flash.warning="Antes de enviar a Revisión debe anexar planos. Verifique"
+
 			redirect url:"/pedido/show/${params.id?:pedidoDentroId}"
 			return
 		}
@@ -1497,64 +1608,59 @@ class PedidoController extends BaseController{
 		generalService.enviarCorreo(1,xdest,xasunto, xcuerpo)
 
 		
-//----------------NOTIFICAR ARQUITECTO DE SOLUCIONES-------------------------
+		//----------------NOTIFICAR ARQUITECTO DE SOLUCIONES-------------------------
 		if(pedidoInstance.arquitectoSol=='S')
 		{
 			List listaArqui=new ArrayList<String>(Arrays.asList(pedidoInstance.listaArquitectos.split(",")));//
 			generalService.notificarArquitectos(listaArqui,pedidoInstance.numPedido)
 			log.info("Lista de arquitectos ${listaArqui} notificados para el pedido ${pedidoInstance.numPedido}")
 		}		
-//----------------NOTIFICAR ARQUITECTO DE SOLUCIONES-------------------------
+		//----------------FIN NOTIFICAR ARQUITECTO DE SOLUCIONES-------------------------
 
-// ----------------NOTIFICAR GERENTE DE PROYECTOS----------------------------JDCASTRO
-		if(pedidoInstance.gerenteProye=='S')
-		{
-			println "Check gerente proyecto activado"
-			String proyecto=pedidoInstance.oportunidad.nombreOportunidad
-			def query=ValorParametro.where{idValorParametro=="gerproye01"}
-			def correo=[query.find().descValParametro?:'auditorcorreocrm@redsis.com']
+		new Timer().runAfter(600000) { /* Closure body *///todo aplica retraso del envio de estos correos para no bloquear el servicio de envios
+			println "Primer timer activo"
+			// ----------------NOTIFICAR GERENTE DE PROYECTOS----------------------------JDCASTRO (abril 2019)
 
-			println "preparando correo al Gerente " + correo
-			//gproy.add(correo)
+			if (pedidoInstance.gerenteProye == 'S') {
+				println "Check gerente proyecto activado"
+				generalService.notificarGProyect(pedidoInstance.numPedido, 2)
+				println "Correo pedido en revision enviado al gerente de proyectos!"
 
-			String asunto="Asignar Gerente de Proyecto al pedido ${pedidoInstance.numPedido} - ${pedidoInstance.nombreCliente}"
-			String masInfo="Para visualizar el pedido o realizar seguimientos al mismo haga clic <a href='${urlbase}/pedido/show/${pedidoInstance.id}'> AQUI </a>"
-			String cuerpo="<b>Cliente: </b>${pedidoInstance.nombreCliente}<br><b>Proyecto: </b>${proyecto}<br><b>Valor: </b>${pedidoInstance.valorPedido} <br><br>${masInfo}" +
-					"<br><br>Asignar Gerente <a href='${urlbase}/pedido/modificaGerenteProye/${pedidoInstance.id}'>AQUI</a>"
-			generalService.enviarCorreo(1,correo,asunto,cuerpo)
-			println "Correo enviado al Gerente Proyecto!"
+			}
+			//----------------NOTIFICAR GERENTE DE PROYECTO-------------------------
 
-			//List listaGProye=new ArrayList<String>(Arrays.asList(pedidoInstance.listaGerenteProye.split(",")));//
-			//generalService.notificarArquitectos(listaGProye,pedidoInstance.numPedido)
-			log.info("Lista de Gproyectos ${correo} notificados para el pedido ${pedidoInstance.numPedido}")
-		}
-//----------------NOTIFICAR GERENTE DE PROYECTO-------------------------
+			//--------------------NOTIFICAR si tiene servicios redsis-------------------------JDCASTRO (Mayo 2019)
+			if (pedidoInstance.handOff == 'S') {
+				println "Servicios Redsis activado (S)"
+				generalService.notificarServicioRedsisUpdate(pedidoInstance.numPedido)
+				println "Correo enviado a Ingenieria!"
 
-//--------------------NOTIFICAR si tiene servicios redsis-------------------------JDCASTRO (Mayo 2019)
-		if(pedidoInstance.handOff=='S'){
-			println "Servicios Redsis activado (S)"
-			generalService.notificarServicioRedsisUpdate(pedidoInstance.numPedido)
-			println "Correo enviado al señor Marlon!"
+				log.info("Pedido ${pedidoInstance.numPedido} con servicios redsis notificado a ingenieria, al envíar a revisión.")
 
-			log.info("Pedido ${pedidoInstance.numPedido} con servicios redsis notificado a ingenieria.")
+			}
+
 
 		}
+		new Timer().runAfter(600000) { /* Closure body */
+		//todo aplica retraso del envio de estos correos para no bloquear el servicio de envios
+			println "Primer timer activo"
 
+			//----------------NOTIFICAR ENERGIA Y CONECTIVIDAD A ANTONIO JOSE-------------------------JDCASTRO (abril 2019)
+			if (pedidoInstance.eyc == 'S') {
+				println "Check Energia y conectividad en si"
+				generalService.notificarGEyC(pedidoInstance.numPedido)
+				println "Correo enviado al Gerente de EyC!"
 
-//----------------NOTIFICAR ENERGIA Y CONECTIVIDAD A ANTONIO JOSE-------------------------JDCASTRO (abril 2019)
-		if(pedidoInstance.eyc=='S'){
-			println "Check Energia y conectividad en si"
-			generalService.notificarGEyC(pedidoInstance.numPedido)
-			println "Correo enviado al Gerente de EyC!"
+				log.info("Pedido de Energia y Conectividad, notificando para el pedido ${pedidoInstance.numPedido}")
 
-			log.info("Pedido de Energia y Conectividad, notificando para el pedido ${pedidoInstance.numPedido}")
+			}
+			//----------------NOTIFICAR ENERGIA Y CONECTIVIDAD A ANTONIO JOSE-------------------------
 
 		}
-
-//----------------NOTIFICAR ENERGIA Y CONECTIVIDAD A ANTONIO JOSE-------------------------
 
 		flash.message="Pedido enviado y notificado al área financiera"
 		redirect url:"/pedido/index?sort=fechaApertura&order=desc"
+
 	}
 	
    
@@ -1705,6 +1811,7 @@ class PedidoController extends BaseController{
 		String urlbase=generalService.getValorParametro('urlaplic')
 		String proyecto=pedidoInstance.oportunidad.nombreOportunidad
 		pedidoInstance.listaGerenteProye=params.gproyec
+		if (pedidoInstance.eyc=='N')pedidoInstance.eyc='S'
 		//println "Gerente Proyecto asignado " +  pedidoInstance.listaGerenteProye
 		pedidoInstance.save()
 		def query=ValorParametro.where{idValorParametro==params.gproyec}
@@ -1876,7 +1983,7 @@ class PedidoController extends BaseController{
 		
 		def anioPedido=pedidoInstance.numPedido.toString().split("-")[2]
 		println "Anio pedido:________________________________________________"+ anioPedido
-		if(anioPedido=="17"||anioPedido=="18"||anioPedido=="19")
+		if(anioPedido=="17"||anioPedido=="18"||anioPedido=="19"||anioPedido=="20")
 			xiva=0.19*(xsubtotal-xdescuento)		
 			
 		def listaPed16Iva19=generalService.getValorParametro('ped16iva19').toString().split(",")			
@@ -1961,7 +2068,7 @@ class PedidoController extends BaseController{
 		Map formatters = [:]
 		Map parameters = [:]
 		def entidad="crm.Pedido"
-		def query="select numPedido,nombreCliente,valorPedido, fechaApertura,idEstadoPedido from Pedidos where  eliminado=0"
+		def query="select numPedido,nombreCliente,valorPedido, fechaApertura, idEstadoPedido, observacionesPedido from Pedidos where  eliminado=0"
 		def datos=generalService.preExportar(entidad,query,campos,true)      //true filtrado false via query
 		 exportService.export(params.id, response.outputStream,datos, formatters, parameters)
 		

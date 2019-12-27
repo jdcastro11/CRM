@@ -183,9 +183,9 @@ class PedidoService {
             if  (!hayAnexo(xidpedido,'pedido','anexo09')) return 2                      
         }
         // Validar requisito Hand-Off
-        if (pedidoInstance.handOff=='S'){
+        /*if (pedidoInstance.handOff=='S'){
             if  (!hayAnexo(xidpedido,'pedido','anexo11')) return 3                      
-        }
+        }*/
         // Validar aprobacion nexsys
         if (pedidoInstance.idBidNexsys=='S'){
             if  (!hayAnexo(xidpedido,'pedido','anexo05')) return 4                      
@@ -198,8 +198,20 @@ class PedidoService {
         // Validar aprobacion propuesta servicio IBM
         if (pedidoInstance.servicioIbm=='S'){
             if  (!hayAnexo(xidpedido,'pedido','anexo08')) return 6                      
-        }     
-        
+        }
+
+        //Validar si el pedido EyC es de mantenimiento
+        if(pedidoInstance.eyc=='S'){
+            if (pedidoInstance.mantenimiento=='N'){
+                // Validar  propuesta aprobada por el cliente
+                if  (!hayAnexo(xidpedido,'pedido','anexo03')) return 8
+                //Validar que contenga los planos
+                if  (!hayAnexo(xidpedido,'pedido','anexo26')) return 9
+            }else if (pedidoInstance.mantenimiento=='S'){
+                // Validar  propuesta aprobada por el cliente
+                if  (!hayAnexo(xidpedido,'pedido','anexo03')) return 8
+            }
+        }
         
         return 0  //todo bien con el pedido 
     }

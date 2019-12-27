@@ -24,6 +24,7 @@ import org.springframework.web.context.request.RequestContextHolder
 import static groovyx.net.http.ContentType.*
 import static groovyx.net.http.Method.*
 import groovyx.net.http.ContentType
+import groovy.sql.Sql
 
 @Transactional
 
@@ -1124,7 +1125,29 @@ class GeneralService {
 		////println "GRAL2 "+general2
 		return general
    }
-   
+
+    List informeFacturasMesAnterior(){//todo terminar consulta para export de facturas
+        println("Generando informe factura mes anterior")
+        def query = """
+            SELECT p.num_pedido, p.nombre_cliente, p.fecha_apertura, f.num_factura, f.fecha_factura, f.valor_factura, p.id_mondeda_factura, v.valor
+            FROM crmdev.pedidos p, crmdev.facturas f, crmdev.valor_parametros v
+            where (id_estado_pedido like '%pedfacturx%' or id_estado_pedido like '%pedfacpar2%') and
+            f.pedido_id = p.id and 
+            p.id_estado_pedido = v.id_valor_parametro and
+            f.fecha_factura between DATE_FORMAT(NOW() - INTERVAL 1 MONTH, '%Y-%m-01 00:00:00') AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 1 MONTH), '%Y-%m-%d 23:59:59') and
+            p.eliminado = 0 and 
+            f.eliminado = 0
+            order by f.fecha_factura desc;
+            """
+        println(query)
+        def sql= new Sql(dataSource)
+        List resultado = sql.rows(query)
+        //println(dataSource)
+        println(resultado)
+        //List facturasPed=[Pedido.executeQuery(query)]
+
+        return resultado
+    }
    
    def estadoItemDetPedido(String idEstadoPedido)
    {
@@ -2502,6 +2525,36 @@ class GeneralService {
 
         enviarCorreo(1,correo,asunto,cuerpo)
 
+    }
+    def notificarGProyect(String numPedido, int sw){//notificacionGProye
+        Pedido pedido=Pedido.findByNumPedido(numPedido)
+        String proyecto=pedido.oportunidad.nombreOportunidad
+        String urlbase=getValorParametro('urlaplic')
+        def query=ValorParametro.where{idValorParametro=="gerproye01"}
+        def correo=[query.find().descValParametro?:'auditorcorreocrm@redsis.com']
+
+        println "preparando correo al Gerente " + correo
+
+        //gproy.add(correo)
+        String asunto=""
+        String masInfo="Para visualizar el pedido o realizar seguimientos al mismo haga clic <a href='${urlbase}/pedido/show/${pedido.id}'> AQUI </a>"
+        String cuerpo="<b>Cliente: </b>${pedido.nombreCliente}<br><b>Proyecto: </b>${proyecto}<br><b>Valor: </b>${pedido.valorPedido} <br><br>${masInfo}" +
+                "<br><br>Asignar Gerente <a href='${urlbase}/pedido/modificaGerenteProye/${pedido.id}'>AQUI</a>"
+
+        if(sw==1){
+            asunto="Asignar gerente de proyecto al pedido ${pedido.numPedido} - ${pedido.nombreCliente}"
+        }else if(sw==0){
+            asunto="Pedido con gerente de proyecto modificado ${pedido.numPedido} - ${pedido.nombreCliente}"
+
+        }else if(sw==2) {
+            asunto = "Pedido con gerente de proyecto enviado a revision ${pedido.numPedido} - ${pedido.nombreCliente}"
+        }
+        enviarCorreo(1,correo,asunto,cuerpo)
+        println "Correo enviado al Gerente Proyecto!"
+
+        //List listaGProye=new ArrayList<String>(Arrays.asList(pedidoInstance.listaGerenteProye.split(",")));//
+        //generalService.notificarArquitectos(listaGProye,pedidoInstance.numPedido)
+        log.info("Lista de Gproyectos ${correo} notificados para el pedido ${pedido.numPedido}")
     }
     def notificarServicioRedsisUpdate(String numPedido){
         println "Notificación Servicios redsis Update"

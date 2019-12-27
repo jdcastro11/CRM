@@ -35,7 +35,7 @@ class DashboardController extends BaseController {
 	  Long[]cityIds=[a]?:[sucursalActual]//id de la sucursal del usuario logueado
 	  println params.sucursales
 	  println "CITY IDS-> "+cityIds
-	  println "--------------------------------------------ENTRE AQQUÍ-----------------------------------------------------------"+params.sucursales
+	  println "--------------------------------------------ENTRE AQQUï¿½-----------------------------------------------------------"+params.sucursales
 	  def infoQ=generalService.infoQEmpleado(ids, Q, "2016",cityIds)
 	  
 	  
@@ -57,24 +57,10 @@ class DashboardController extends BaseController {
 		'GERENTE'  in generalService.getRolUsuario(session['idUsuario'].toLong())) 
 	{
        //render view :'index'
-		
-		   
-       redirect url:"/oportunidad/indicadoresPorQ"
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		redirect url:"/oportunidad/indicadoresPorQ"
+
 	/*	
-		
-		
-		
-		
-		
+
 		def usuarioLogueado=generalService.getIdEmpleado(session['idUsuario'].toLong())
 		def userName = Usuario.where {empleado.id==usuarioLogueado}.toList()[0]
 		def userId=userName.id
@@ -100,27 +86,19 @@ class DashboardController extends BaseController {
 		mimapa.op75
 		mimapa.op100
 		
-		
-		
-		
-		
+
 		if(generalService.getRolUsuario(userId).equals('GERENTE') || usuarioLogueado==61)
 		{
 			idsVendedores=generalService.traerVendedoresPorGerente("${userName}V")//userName + letra V(nomenclatura utilizada)
 			vendedores=Empleado.getAll(idsVendedores)
 			println "HA INGRESADO UN GERENTE"+userName
 		}
-		
-		
-		
-		
-		
+
 		
 		def oportunidades = [['string', 'Tarea'], ['number', 'Porcentaje']]
 		def porcentajeOp = [['Opor10%', mimapa.op10], ['Opor25%', mimapa.op25], ['Opor50%', mimapa.op50], ['Opor75%', mimapa.op75],['Opor100%', mimapa.op100]]
 		def forecastTemp=infoQ.porcentajeForecast
-		
-		
+
 		if(forecastTemp.equals("No aplica"))
 		forecastTemp=0
 		def myDailyActivitiesColumns = [['string', 'Tarea'], ['number', 'Generado'],['number', 'Asignado'],['number', 'Forecast'],['number', 'Ganado'],['number', 'Facturado'],['number', 'Perdido']]
@@ -128,7 +106,6 @@ class DashboardController extends BaseController {
 		//def myDailyActivitiesData = [['Indicadores',infoQ.porcentajeGenerado,infoQ.porcentajeGenerado,infoQ.porcentajeGenerado,infoQ.porcentajeGenerado,infoQ.porcentajeGenerado,infoQ.porcentajeGenerado]]
 		//def myDailyActivitiesData = [['Indicadores',500,500,900]]
 	
-		
 		def idsSucursales=[1,2,3,4]
 		def sucursales=Empresa.getAll(idsSucursales)
 		
@@ -136,33 +113,15 @@ class DashboardController extends BaseController {
 		   oportunidades:oportunidades,porcentajeOp:porcentajeOp,sucursales:sucursales,usuarioLogueado:nombreUsuario,vendedores:vendedores,
 		   usuarioLogueadoId:usuarioLogueado]
 
-		
-		
-		
-		
-		
-		
-		
-		
+
 		*/
-	 
-	   
-		
-		
-		
-		
-		
-    }else if('ADMIN_FUNCIONAL'  in generalService.getRolUsuario(session['idUsuario'].toLong()) || 
-              
-             'ASISTENTE_VENTAS'  in generalService.getRolUsuario(session['idUsuario'].toLong())  ){
-			 
-			 
-			 
+
+    }else if('ASISTENTE_VENTAS'  in generalService.getRolUsuario(session['idUsuario'].toLong())  ){
+
 			            redirect url:"/oportunidad/indexc"
-    }else{}
-        
-    
+    }else if('ADMIN_FUNCIONAL'  in generalService.getRolUsuario(session['idUsuario'].toLong())) {}
+
+		redirect url:"/seguridad/index"
           
    }
 }
-

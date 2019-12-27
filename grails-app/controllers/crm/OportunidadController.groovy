@@ -38,7 +38,7 @@ class OportunidadController extends BaseController {
 		
 
 		if(params.filter.estrategiaId){
-			println "Params.filter.estrategiaId "+params.filter.estrategiaId			 
+			//println "Params.filter.estrategiaId "+params.filter.estrategiaId
 			params.filter.estrategiaId=generalService.getIdEstrategia(params.filter.estrategiaId)
 		}
 		

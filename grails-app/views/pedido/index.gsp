@@ -233,8 +233,10 @@
                                     </li>                                                                        
                                     <li>
                                         <g:link action="exportarDatos" params="[tipo_export:'2',xaccionx:xaccion,titulo:xtitulo]">Por arquitecto</g:link>
-                                    </li>                          
-                                                               
+                                    </li>
+                                    <li>
+                                        <g:link action="exportarDatos" params="[tipo_export:'3',xaccionx:xaccion,titulo:'Facturas por mes']">Informe facturas</g:link>
+                                    </li>
                                 </ul>
                               </li>
                        </g:if>

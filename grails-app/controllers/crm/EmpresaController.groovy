@@ -756,7 +756,7 @@ class EmpresaController extends BaseController{
         println "Revisando serviceLis, Usuario: " //+  params.username.toString() + ", Contraseña: " + params.password
         def consul = "select nit, razonSocial from Empresa"
         def con = Empresa.executeQuery(consul)
-        render con
+        render con as JSON
     }
 
 

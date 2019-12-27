@@ -54,6 +54,8 @@ class Pedido {
      String gerenteProye
      String listaGerenteProye
      String eyc
+     String ce
+     String mantenimiento
      BigDecimal costoMateriales
      BigDecimal costoManoObra
      BigDecimal precioVentaMaterales
@@ -134,7 +136,9 @@ class Pedido {
         uniSinco             nullable: true, maxSize: 1
         gerenteProye         nullable: true, maxSize: 1
         listaGerenteProye    nullable: true, maxSize: 200
-        eyc                  nullable: true, maxSize: 1,defaultValue:"N"
+        ce                   nullable: true, maxSize: 200, defaultValue:"N"
+        eyc                  nullable: true, maxSize: 1, defaultValue:"N"
+        mantenimiento        nullable: true, maxSize: 1, defaultValue:"N"
         costoMateriales      nullable: true,defaultValue:0
         costoManoObra        nullable: true,defaultValue:0
         precioVentaMaterales nullable: true,defaultValue:0

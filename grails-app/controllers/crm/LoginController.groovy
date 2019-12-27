@@ -19,9 +19,10 @@ class LoginController {
     
     def acceso() { render view: 'acceso' }    
     
-    def autenticacion() {         
-        
-        println "hola soy yo desde base Controller... pArAmS "+params
+    def autenticacion() {
+        Date hora= new Date()
+        //println hora
+        println "Iniciando sesión Usuario:  " +session["nombre"] +": "+params.username +" Ahora:"+ hora
 		
 		def clave = params.password + ""
         clave = clave.encodeAsMD5()
@@ -70,6 +71,9 @@ class LoginController {
     
     def cerrarSesion() { 
         session.invalidate()
+        Date hora= new Date()
+        //println hora
+        println "Sesion de Usuario cerrada:  "+params.username + hora
         GrailsWebRequest.lookup(request).session = null        
         redirect(controller:"Login",action:"index")
     }
